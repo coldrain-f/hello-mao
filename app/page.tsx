@@ -12,6 +12,14 @@ import { Button } from "@/components/ui/button";
 import { TypeAnimation } from "react-type-animation";
 import { useState } from "react";
 
+import localFont from "next/font/local";
+
+const azukiFont = localFont({
+  src: "./fonts/azuki.ttf",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+
 export default function Home() {
   const [start, setStart] = useState(false);
 
@@ -23,8 +31,8 @@ export default function Home() {
             <CardTitle></CardTitle>
             <CardDescription></CardDescription>
           </CardHeader>
-          <CardContent className="text-stone-100">
-            <p className="font-bold text-stone-100">サンウン</p>
+          <CardContent className={`text-stone-100 ${azukiFont.className}`}>
+            <p className={`font-bold ${azukiFont.className}`}>サンウン</p>
             <TypeAnimation
               sequence={[
                 "こんにちは。サンウンです。",
