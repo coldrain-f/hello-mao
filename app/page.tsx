@@ -23,6 +23,7 @@ const azukiFont = localFont({
 
 export default function Home() {
   const [start, setStart] = useState(false);
+  const [speedMode, setSpeedMode] = useState(0);
 
   return (
     <div className="flex justify-center">
@@ -115,7 +116,7 @@ export default function Home() {
                 100000000,
               ]}
               wrapper="span"
-              speed={5}
+              speed={speedMode === 0 ? 10 : 50}
               style={{ fontSize: "1.5em", display: "inline-block" }}
               repeat={Infinity}
             />
@@ -123,15 +124,26 @@ export default function Home() {
           <CardFooter></CardFooter>
         </Card>
       ) : (
-        <Button
-          variant="outline"
-          className="m-5"
-          onClick={() => {
-            setStart(true);
-          }}
-        >
-          スタート
-        </Button>
+        <>
+          <Button
+            className="mt-10"
+            onClick={() => {
+              setStart(true);
+              setSpeedMode(0);
+            }}
+          >
+            遅く
+          </Button>
+          <Button
+            className="ml-5 mt-10"
+            onClick={() => {
+              setStart(true);
+              setSpeedMode(1);
+            }}
+          >
+            普通
+          </Button>
+        </>
       )}
     </div>
   );
