@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import { TypeAnimation } from "react-type-animation";
 import { useState } from "react";
@@ -26,13 +27,20 @@ export default function Home() {
   return (
     <div className="flex justify-center">
       {start ? (
-        <Card className="w-[550px] my-5 m-5 rounded-lg border-none transition-all duration-300 p-6 bg-black">
+        <Card className="w-[550px] my-5 m-5 rounded-lg border-none transition-all duration-300 p-6 bg-slate-700">
           <CardHeader>
             <CardTitle></CardTitle>
             <CardDescription></CardDescription>
           </CardHeader>
           <CardContent className={`text-stone-100 ${azukiFont.className}`}>
-            <p className={`font-bold ${azukiFont.className}`}>サンウン</p>
+            <div className="flex mb-3">
+              <Avatar className="mr-2">
+                <AvatarImage src="https://static-cdn.jtvnw.net/jtv_user_pictures/24960ee0-ae15-4b5e-9f0b-e08ec4667bfe-profile_image-300x300.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+
+              <p className={`font-bold pt-1`}>サンウン</p>
+            </div>
             <TypeAnimation
               sequence={[
                 "こんにちは。サンウンです。",
@@ -104,7 +112,7 @@ export default function Home() {
                 "これからもよろしくお願いします。",
                 1000,
                 "早く会いたいです。大好きです。",
-                1000,
+                100000000,
               ]}
               wrapper="span"
               speed={5}
